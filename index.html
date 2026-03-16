@@ -3,140 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valeria Spektor | QA Portfolio</title>
+    <title>Valeria Spektor | Middle QA Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f1f5f9; scroll-behavior: smooth; }
-        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
-        .glass-card:hover { border-color: #3b82f6; transform: translateY(-5px); box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3); }
-        .sidebar-link:hover { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
-        .active-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+        body { font-family: 'Inter', sans-serif; background-color: #0b0f1a; color: #e2e8f0; scroll-behavior: smooth; }
+        .sidebar { background-color: #111827; border-right: 1px solid #1f2937; }
+        .glass-card { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
+        .glass-card:hover { border-color: #3b82f6; transform: translateY(-3px); box-shadow: 0 10px 30px -15px rgba(59, 130, 246, 0.2); }
+        .skill-tag { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .active-status { background: rgba(34, 197, 94, 0.1); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.2); }
     </style>
 </head>
 <body class="flex flex-col md:flex-row min-h-screen">
 
-    <aside class="w-full md:w-64 bg-slate-900 border-r border-slate-800 p-6 flex flex-col sticky top-0 md:h-screen z-50">
-        <div class="flex items-center gap-3 mb-10">
-            <div class="bg-blue-600 p-2 rounded-lg"><i data-lucide="shield-check" class="text-white"></i></div>
-            <span class="font-bold text-xl tracking-tight">VS.QA</span>
+    <aside class="sidebar w-full md:w-72 p-6 flex flex-col sticky top-0 md:h-screen z-50">
+        <div class="flex items-center gap-3 mb-8">
+            <div class="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-500/20">
+                <i data-lucide="terminal" class="text-white w-6 h-6"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight text-white uppercase">VS.Portfolio</span>
         </div>
-        
-        <nav class="space-y-2 flex-1">
-            <a href="#hero" class="sidebar-link flex items-center gap-3 p-3 rounded-xl transition-all">
-                <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Главная
+
+        <nav class="space-y-1 flex-1 text-sm font-medium">
+            <a href="#about" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 text-slate-400 hover:text-white transition-all">
+                <i data-lucide="user" class="w-4 h-4"></i> Обо мне
             </a>
-            <a href="#skills" class="sidebar-link flex items-center gap-3 p-3 rounded-xl transition-all text-slate-400">
-                <i data-lucide="cpu" class="w-5 h-5"></i> Стек & Навыки
+            <a href="#experience" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 text-slate-400 hover:text-white transition-all">
+                <i data-lucide="briefcase" class="w-4 h-4"></i> Опыт работы
             </a>
-            <a href="#experience" class="sidebar-link flex items-center gap-3 p-3 rounded-xl transition-all text-slate-400">
-                <i data-lucide="briefcase" class="w-5 h-5"></i> Опыт работы
+            <a href="#skills" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 text-slate-400 hover:text-white transition-all">
+                <i data-lucide="layers" class="w-4 h-4"></i> Навыки & Стек
+            </a>
+            <a href="#education" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800 text-slate-400 hover:text-white transition-all">
+                <i data-lucide="graduation-cap" class="w-4 h-4"></i> Образование
             </a>
         </nav>
 
-        <div class="mt-auto p-4 bg-slate-800/50 rounded-2xl border border-slate-700">
-            <div class="flex items-center gap-2 mb-2">
-                <div class="active-dot"></div>
-                <span class="text-xs font-semibold text-slate-300 uppercase">Доступна для найма</span>
+        <div class="mt-auto pt-6 border-t border-slate-800 space-y-4">
+            <div class="active-status px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2">
+                <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>
+                AVAILABLE FOR HIRE
             </div>
-            <p class="text-[10px] text-slate-500">QA Engineer | Israel</p>
+            <div class="text-[11px] text-slate-500">
+                <p>vlapin84@gmail.com</p>
+                <p>Israel | +972 52 8287872</p>
+            </div>
         </div>
     </aside>
 
-    <main class="flex-1 p-6 md:p-12 max-w-6xl mx-auto w-full">
+    <main class="flex-1 p-6 md:p-12 max-w-5xl">
         
-        <section id="hero" class="mb-20 animate__animated animate__fadeIn">
-            <div class="flex flex-col md:flex-row items-center gap-10">
-                <div class="flex-1 text-center md:text-left">
-                    <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">Valeria <span class="text-blue-500">Spektor</span></h1>
-                    <p class="text-xl text-slate-400 max-w-xl mb-8">
-                        Специалист по обеспечению качества (QA). Фокусируюсь на тестировании AI-продуктов, CRM-систем и сложных веб-интерфейсов.
-                    </p>
-                    <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                        <a href="mailto:vlapin84@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold transition-all flex items-center gap-2">
-                            <i data-lucide="send" class="w-5 h-5"></i> Написать мне
-                        </a>
-                        <a href="https://t.me/ValeriaSpektor" target="_blank" class="glass-card px-8 py-4 rounded-2xl font-bold flex items-center gap-2">
-                            <i data-lucide="message-circle" class="w-5 h-5"></i> Telegram
-                        </a>
+        <header id="about" class="mb-16 animate__animated animate__fadeIn">
+            <div class="inline-block px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold mb-4 tracking-widest uppercase">Middle QA Engineer (Manual)</div>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">Valeria Spektor</h1>
+            <p class="text-lg text-slate-400 leading-relaxed max-w-2xl">
+                Более 2 лет опыта в ручном тестировании веб и мобильных приложений. Эксперт в CRM-системах и AI-продуктах. Сильные навыки в API (Postman), SQL и валидации бизнес-логики в Agile-среде.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+                <a href="https://t.me/ValeriaSpektor" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2">
+                    <i data-lucide="send" class="w-5 h-5"></i> Telegram
+                </a>
+                <a href="mailto:vlapin84@gmail.com" class="glass-card px-6 py-3 rounded-xl font-bold flex items-center gap-2 text-white">
+                    <i data-lucide="mail" class="w-5 h-5"></i> Email
+                </a>
+            </div>
+        </header>
+
+        <section id="skills" class="mb-16">
+            <h2 class="text-xl font-bold mb-6 text-white border-l-4 border-blue-500 pl-4 uppercase tracking-wider">Навыки & Инструменты</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-blue-400 font-bold mb-4 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i> Testing</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-md text-xs">Functional</span>
+                        <span class="skill-tag px-3 py-1 rounded-md text-xs">Regression</span>
+                        <span class="skill-tag px-3 py-1 rounded-md text-xs">Smoke</span>
+                        <span class="skill-tag px-3 py-1 rounded-md text-xs">Exploratory</span>
+                        <span class="skill-tag px-3 py-1 rounded-md text-xs">UI/UX</span>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-purple-400 font-bold mb-4 flex items-center gap-2"><i data-lucide="code" class="w-4 h-4"></i> API & Data</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-md text-xs">Postman</span>
+                        <span class="skill-tag px-3 py-1 rounded-md text-xs">REST API</span>
+                        <span class="skill-tag px-3 py-1 rounded-md text-xs">JSON Validation</span>
+                        <span class="skill-tag px-3 py-1 rounded-md text-xs">SQL Queries</span>
+                        <span class="skill-tag px-3 py-1 rounded-md text-xs">Log Analysis</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="mb-20">
-            <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
-                <i data-lucide="zap" class="text-yellow-400"></i> Экспертиза
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card p-8 rounded-3xl">
-                    <i data-lucide="search" class="text-blue-500 mb-4 w-10 h-10"></i>
-                    <h3 class="text-xl font-bold mb-2">Manual QA</h3>
-                    <p class="text-slate-400 text-sm">Функциональное, регрессионное и UI/UX тестирование. Глубокое понимание баг-репортов.</p>
+        <section id="experience" class="mb-16">
+            <h2 class="text-xl font-bold mb-8 text-white border-l-4 border-blue-500 pl-4 uppercase tracking-wider">Опыт работы</h2>
+            <div class="space-y-8 relative before:content-[''] before:absolute before:left-4 before:top-2 before:bottom-2 before:w-[1px] before:bg-slate-800">
+                
+                <div class="relative pl-12">
+                    <div class="absolute left-0 top-1 w-8 h-8 bg-blue-600/20 rounded-full border border-blue-500/50 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <h3 class="font-bold text-lg text-white">QA Engineer / Team Lead</h3>
+                            <span class="text-blue-400 text-sm font-bold">Oct 2025 — Mar 2026</span>
+                        </div>
+                        <p class="text-slate-300 font-medium mb-2">Imperia Leads (High-load CRM)</p>
+                        <ul class="text-sm text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Лидирование QA-активностей для высоконагруженной CRM-системы.</li>
+                            <li>Функциональное, интеграционное и регрессионное тестирование веб-приложений.</li>
+                            <li>Тестирование REST API (Postman) и валидация JSON-ответов.</li>
+                            <li>Анализ логов, метрик и SQL-данных для поиска дефектов.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="glass-card p-8 rounded-3xl">
-                    <i data-lucide="database" class="text-purple-500 mb-4 w-10 h-10"></i>
-                    <h3 class="text-xl font-bold mb-2">API & SQL</h3>
-                    <p class="text-slate-400 text-sm">Работа с Postman, REST API и базами данных для проверки целостности информации.</p>
+
+                <div class="relative pl-12">
+                    <div class="absolute left-0 top-1 w-8 h-8 bg-slate-800 rounded-full border border-slate-700 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-slate-600 rounded-full"></div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <h3 class="font-bold text-lg text-white">QA Engineer / QA Team Lead</h3>
+                            <span class="text-slate-500 text-sm">Jun 2024 — Jan 2025</span>
+                        </div>
+                        <p class="text-slate-300 font-medium mb-2">Chatbot Studio AI</p>
+                        <ul class="text-sm text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Внедрение процессов тестирования для AI-ассистентов.</li>
+                            <li>Тестирование диалоговых потоков (conversational flows) и голосового взаимодействия.</li>
+                            <li>Проверка логики распознавания речи и персонализации ИИ.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="glass-card p-8 rounded-3xl">
-                    <i data-lucide="bot" class="text-emerald-500 mb-4 w-10 h-10"></i>
-                    <h3 class="text-xl font-bold mb-2">AI Systems</h3>
-                    <p class="text-slate-400 text-sm">Тестирование логики чат-ботов, LLM и голосовых ассистентов.</p>
+
+                <div class="relative pl-12">
+                    <div class="absolute left-0 top-1 w-8 h-8 bg-slate-800 rounded-full border border-slate-700 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-slate-600 rounded-full"></div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <h3 class="font-bold text-lg text-white">QA Engineer</h3>
+                            <span class="text-slate-500 text-sm">Jan 2024 — May 2024</span>
+                        </div>
+                        <p class="text-slate-300 font-medium mb-2">Antara LLC</p>
+                        <ul class="text-sm text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Выполнение 200+ ручных тест-кейсов для веб-приложений.</li>
+                            <li>REST API тестирование с использованием Postman.</li>
+                            <li>Создание подробных баг-репортов и тесное сотрудничество с разработчиками.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative pl-12">
+                    <div class="absolute left-0 top-1 w-8 h-8 bg-slate-800 rounded-full border border-slate-700 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-slate-600 rounded-full"></div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <h3 class="font-bold text-lg text-white">QA Engineer Intern</h3>
+                            <span class="text-slate-500 text-sm">Sep 2023 — Nov 2023</span>
+                        </div>
+                        <p class="text-slate-300 font-medium mb-2">Tehnosoft LLC</p>
+                        <ul class="text-sm text-slate-400 space-y-2 list-disc ml-4">
+                            <li>Тестирование мобильного приложения "Adventure and Life".</li>
+                            <li>Подготовка тест-кейсов и чек-листов.</li>
+                            <li>Нагрузочное тестирование с Charles Proxy.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="education" class="mb-16">
+            <h2 class="text-xl font-bold mb-8 text-white border-l-4 border-blue-500 pl-4 uppercase tracking-wider">Образование & Курсы</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="glass-card p-6 rounded-2xl">
+                    <h4 class="font-bold text-white mb-2">QA.GURU (2024)</h4>
+                    <p class="text-sm text-slate-400">Automation Testing (JS & Playwright)</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h4 class="font-bold text-white mb-2">Haifa University</h4>
+                    <p class="text-sm text-slate-400">Master's Degree</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl col-span-1 md:col-span-2">
+                    <h4 class="font-bold text-white mb-2">Languages</h4>
+                    <p class="text-sm text-slate-400">Hebrew (C1), English (B1), Russian (Native)</p>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="mb-20">
-            <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
-                <i data-lucide="history" class="text-blue-500"></i> Опыт работы
-            </h2>
-            <div class="space-y-6">
-                <div class="glass-card p-6 rounded-2xl flex justify-between items-center">
-                    <div>
-                        <h4 class="font-bold text-lg">QA Lead — Imperia Leads</h4>
-                        <p class="text-sm text-slate-500">Окт 2025 – Март 2026</p>
-                    </div>
-                    <div class="hidden md:block text-right">
-                        <span class="bg-blue-600/20 text-blue-400 text-[10px] px-3 py-1 rounded-full uppercase font-bold tracking-widest">Active</span>
-                    </div>
-                </div>
-                <div class="glass-card p-6 rounded-2xl flex justify-between items-center">
-                    <div>
-                        <h4 class="font-bold text-lg">QA Engineer — Chatbot Studio AI</h4>
-                        <p class="text-sm text-slate-500">Июнь 2024 – Янв 2025</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <footer class="mt-20 pt-10 border-t border-slate-800 text-center">
+            <p class="text-slate-600 text-xs">© 2026 Valeria Spektor. Hosted on Vercel.</p>
+        </footer>
     </main>
 
-    <div class="fixed bottom-8 right-8 z-[100]">
-        <button onclick="document.getElementById('bot-chat').classList.toggle('hidden')" class="bg-blue-600 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform">
-            <i data-lucide="bot" class="text-white w-8 h-8"></i>
+    <div class="fixed bottom-6 right-6 z-[100]">
+        <button onclick="document.getElementById('istqb-win').classList.toggle('hidden')" class="bg-blue-600 hover:bg-blue-700 text-white w-14 h-14 rounded-2xl shadow-xl flex items-center justify-center transition-transform hover:rotate-12 group">
+            <i data-lucide="brain-circuit" class="group-hover:scale-110"></i>
         </button>
-        <div id="bot-chat" class="hidden absolute bottom-20 right-0 w-80 glass-card rounded-3xl overflow-hidden animate__animated animate__fadeInUp">
-            <div class="bg-blue-600 p-4 font-bold flex justify-between items-center">
-                <span>ISTQB Assistant</span>
-                <i data-lucide="x" class="w-4 h-4 cursor-pointer" onclick="document.getElementById('bot-chat').classList.add('hidden')"></i>
+        <div id="istqb-win" class="hidden absolute bottom-20 right-0 w-80 glass-card rounded-2xl overflow-hidden shadow-2xl animate__animated animate__fadeInUp">
+            <div class="bg-blue-600 p-4 font-bold text-sm flex justify-between items-center text-white">
+                <span>ISTQB Study Assistant</span>
+                <button onclick="document.getElementById('istqb-win').classList.add('hidden')"><i data-lucide="x" class="w-4 h-4"></i></button>
             </div>
-            <div class="p-6 text-sm">
-                <p class="mb-4 text-slate-300">"Привет! Я AI-ассистент Валерии. Она сейчас активно готовится к сертификации **ISTQB Foundation Level**."</p>
-                <div class="bg-slate-950 p-4 rounded-xl border border-slate-700 text-blue-400 font-mono text-[10px] mb-4">
-                    > Подготовка к экзамену: 85% завершено
+            <div class="p-5 text-sm">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center border border-blue-500/30">
+                        <i data-lucide="bot" class="text-blue-400 w-5 h-5"></i>
+                    </div>
+                    <div class="text-xs text-slate-300">"Валерия готовится к **ISTQB Foundation Level**. Я помогаю ей с теорией!"</div>
                 </div>
-                <a href="https://t.me/ValeriaSpektor" class="block w-full bg-slate-700 text-center py-3 rounded-xl font-bold hover:bg-slate-600 transition-colors">Связаться в Telegram</a>
+                <div class="space-y-2 mb-4">
+                    <div class="h-2 w-full bg-slate-800 rounded-full"><div class="h-full bg-blue-500 rounded-full w-[85%]"></div></div>
+                    <p class="text-[10px] text-slate-500 text-right uppercase font-bold tracking-tighter">85% Readiness</p>
+                </div>
+                <a href="https://t.me/ValeriaSpektor" class="block bg-slate-800 hover:bg-slate-700 py-3 rounded-xl text-center font-bold transition-all text-xs">Спросить про ISTQB</a>
             </div>
         </div>
     </div>
 
-    <script>
-        // Инициализация иконок
-        lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
