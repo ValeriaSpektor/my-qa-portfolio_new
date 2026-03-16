@@ -10,155 +10,185 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #05070a; color: #e2e8f0; scroll-behavior: smooth; overflow-x: hidden; }
-        .sidebar { background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(20px); border-right: 1px solid #1f2937; }
-        .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, rgba(5, 7, 10, 0) 70%); }
-        .card-creative { background: #0d1117; border: 1px solid #21262d; transition: all 0.4s ease; height: 100%; }
-        .card-creative:hover { border-color: #3b82f6; box-shadow: 0 15px 40px -20px rgba(59, 130, 246, 0.3); }
-        .skill-badge { background: #161b22; border: 1px solid #30363d; color: #8b949e; padding: 0.6rem 1rem; border-radius: 12px; font-size: 0.8rem; }
-        .profile-image { border: 4px solid #1e293b; box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); background: #111827; }
-        .nav-link.active { color: #3b82f6; background: rgba(59, 130, 246, 0.1); border-radius: 12px; }
-        p, li { line-height: 1.8; }
-        section { display: none; }
-        section.active { display: block; }
+        .sidebar { background: rgba(13, 17, 23, 0.98); backdrop-filter: blur(20px); border-right: 1px solid #1f2937; }
+        .nav-btn { transition: all 0.3s ease; border-radius: 12px; margin-bottom: 8px; }
+        .nav-btn.active { background: #2563eb; color: white; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); }
+        .card-pro { background: #0d1117; border: 1px solid #21262d; border-radius: 24px; overflow: hidden; transition: all 0.4s ease; }
+        .card-pro:hover { border-color: #2563eb; transform: translateY(-5px); box-shadow: 0 20px 40px -20px rgba(37, 99, 235, 0.3); }
+        .section-content { display: none; }
+        .section-content.active { display: block; }
+        .img-overlay { background: linear-gradient(to top, #0d1117 15%, transparent 100%); }
+        p, li { line-height: 1.8; color: #94a3b8; }
+        h1, h2, h3 { color: white; letter-spacing: -0.02em; }
     </style>
 </head>
 <body class="flex flex-col md:flex-row min-h-screen">
 
-    <aside class="sidebar w-full md:w-80 p-10 flex flex-col sticky top-0 md:h-screen z-50">
-        <div class="mb-10 text-center md:text-left">
-            <div class="flex items-center gap-3 mb-6 justify-center md:justify-start">
-                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/40 font-bold text-white uppercase">VS</div>
-                <span class="text-2xl font-extrabold tracking-tighter text-white uppercase">Portfolio</span>
+    <aside class="sidebar w-full md:w-80 p-8 flex flex-col sticky top-0 md:h-screen z-50">
+        <div class="mb-10">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/20 font-extrabold text-white text-xl uppercase">VS</div>
+                <div>
+                    <h2 class="font-extrabold text-lg leading-tight uppercase">Valeria</h2>
+                    <p class="text-[10px] text-blue-500 font-bold tracking-[0.2em] uppercase">QA Engineer</p>
+                </div>
             </div>
             
-            <img src="photo 2.jpg" alt="Valeria Spektor" onerror="this.src='https://ui-avatars.com/api/?name=Valeria+Spektor&background=2563eb&color=fff&size=512'" class="profile-image w-40 h-40 md:w-48 md:h-48 rounded-3xl object-cover mx-auto md:mx-0 mb-8 animate__animated animate__fadeIn">
-            
-            <h2 class="text-xl font-bold text-white mb-1 uppercase tracking-tight">Valeria Spektor</h2>
-            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em] mb-6 leading-none tracking-widest">Middle QA Engineer</p>
-            
-            <div class="flex items-center gap-2 justify-center md:justify-start text-xs text-green-500 font-bold bg-green-500/10 py-2 px-4 rounded-full inline-flex">
-                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Available for Hire
+            <div class="relative group mb-10">
+                <img src="photo 2.jpg" alt="Valeria Spektor" onerror="this.src='https://ui-avatars.com/api/?name=Valeria+Spektor&background=2563eb&color=fff&size=512'" class="w-full aspect-square rounded-[2rem] object-cover border-4 border-slate-800 shadow-2xl transition-transform group-hover:scale-105">
+                <div class="absolute -bottom-3 -right-3 bg-green-500 text-white p-2 rounded-xl shadow-lg shadow-green-500/30">
+                    <i data-lucide="zap" class="w-4 h-4 fill-current"></i>
+                </div>
             </div>
+
+            <nav class="space-y-1">
+                <button onclick="changePage('home', this)" class="nav-btn active w-full flex items-center gap-4 p-4 text-sm font-bold uppercase tracking-widest"><i data-lucide="layout"></i> Home</button>
+                <button onclick="changePage('exp', this)" class="nav-btn w-full flex items-center gap-4 p-4 text-sm font-bold uppercase tracking-widest"><i data-lucide="briefcase"></i> Experience</button>
+                <button onclick="changePage('ai', this)" class="nav-btn w-full flex items-center gap-4 p-4 text-sm font-bold uppercase tracking-widest"><i data-lucide="bot"></i> AI Portfolio</button>
+                <button onclick="changePage('edu', this)" class="nav-btn w-full flex items-center gap-4 p-4 text-sm font-bold uppercase tracking-widest"><i data-lucide="graduation-cap"></i> Education</button>
+            </nav>
         </div>
 
-        <nav class="space-y-2 flex-1 mt-6">
-            <button onclick="showPage('about')" class="nav-link active w-full flex items-center gap-4 p-3 text-slate-400 hover:text-white transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="user" class="w-4 h-4"></i> About</button>
-            <button onclick="showPage('experience')" class="nav-link w-full flex items-center gap-4 p-3 text-slate-400 hover:text-white transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="briefcase" class="w-4 h-4"></i> Experience</button>
-            <button onclick="showPage('ai')" class="nav-link w-full flex items-center gap-4 p-3 text-slate-400 hover:text-white transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="bot" class="w-4 h-4"></i> AI Projects</button>
-            <button onclick="showPage('education')" class="nav-link w-full flex items-center gap-4 p-3 text-slate-400 hover:text-white transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="graduation-cap" class="w-4 h-4"></i> Education</button>
-        </nav>
-
-        <div class="mt-auto pt-8 border-t border-slate-800 flex gap-6 justify-center md:justify-start text-slate-500">
-            <a href="https://t.me/ValeriaSpektor" target="_blank" class="hover:text-white transition-colors"><i data-lucide="send"></i></a>
-            <a href="mailto:vlapin84@gmail.com" class="hover:text-white transition-colors"><i data-lucide="mail"></i></a>
+        <div class="mt-auto flex gap-4 pt-6 border-t border-slate-800">
+            <a href="https://t.me/ValeriaSpektor" class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i data-lucide="send" class="w-5 h-5"></i></a>
+            <a href="mailto:vlapin84@gmail.com" class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
         </div>
     </aside>
 
-    <main class="flex-1 hero-gradient overflow-x-hidden p-8 md:p-20">
+    <main class="flex-1 p-6 md:p-16 lg:p-24 relative overflow-x-hidden">
         
-        <section id="about" class="active animate__animated animate__fadeIn">
-            <h1 class="text-5xl md:text-8xl font-extrabold text-white mb-12 leading-[1.05]">Precision <br> Testing.</h1>
-            <p class="text-2xl text-slate-400 leading-relaxed max-w-4xl mb-12">
-                QA Engineer with 2+ years of experience in manual testing of web and mobile applications[cite: 5]. Specialized in CRM systems, AI products, and high-load web platforms[cite: 5].
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card-creative p-8 rounded-3xl">
-                    <h3 class="text-blue-500 font-bold mb-4 uppercase text-xs tracking-widest">Expertise</h3>
-                    <p class="text-sm text-slate-400">Experienced in functional, regression, and API testing, creating test documentation, and collaborating in Agile environments[cite: 6]. Strong analytical mindset with attention to detail[cite: 7].</p>
-                </div>
-                <div class="card-creative p-8 rounded-3xl">
-                    <h3 class="text-blue-500 font-bold mb-4 uppercase text-xs tracking-widest">Languages</h3>
-                    <ul class="text-sm space-y-2">
-                        <li><span class="text-slate-300">Hebrew:</span> <span class="text-blue-400 font-bold">C1</span> [cite: 20]</li>
-                        <li><span class="text-slate-300">English:</span> <span class="text-blue-400 font-bold">B1</span> [cite: 20]</li>
-                        <li><span class="text-slate-300">Russian:</span> <span class="text-blue-400 font-bold">Native</span> [cite: 20]</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="animate__animated animate__fadeIn">
-            <h2 class="text-4xl font-bold mb-16 text-white border-b border-slate-800 pb-8 uppercase tracking-widest">Career Path</h2>
-            <div class="grid grid-cols-1 gap-12">
-                <div class="card-creative p-10 rounded-[2.5rem]">
-                    <div class="flex flex-col md:flex-row justify-between mb-8 gap-4">
-                        <h3 class="text-3xl font-bold text-white">QA Team Lead</h3>
-                        <span class="text-blue-500 font-bold">2025 — 2026</span>
+        <section id="home" class="section-content active animate__animated animate__fadeIn">
+            <div class="max-w-4xl">
+                <span class="inline-block bg-blue-600/10 text-blue-500 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">Based in Haifa, Israel [cite: 3]</span>
+                <h1 class="text-6xl md:text-8xl font-black mb-10 leading-[1] text-white">Quality <br> <span class="text-blue-600 italic">Redefined.</span></h1>
+                <p class="text-xl md:text-2xl text-slate-400 mb-12 leading-relaxed">
+                    QA Engineer with 2+ years of experience[cite: 5]. I specialize in manual testing for high-load CRM systems [cite: 5, 22], AI-driven assistants [cite: 5, 36], and global web platforms[cite: 5, 30].
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="card-pro p-8">
+                        <i data-lucide="search" class="text-blue-500 mb-4"></i>
+                        <h4 class="font-bold mb-2">Manual QA</h4>
+                        <p class="text-xs">Functional, regression, and smoke testing[cite: 10].</p>
                     </div>
-                    <p class="text-blue-400 font-bold uppercase tracking-widest text-sm mb-6">Imperia Leads (High-load CRM) [cite: 22]</p>
-                    <ul class="text-slate-400 space-y-4">
-                        <li class="flex gap-4"><i data-lucide="check" class="text-blue-500 w-5 h-5 flex-shrink-0"></i> Led QA activities for a high-load CRM system[cite: 23].</li>
-                        <li class="flex gap-4"><i data-lucide="check" class="text-blue-500 w-5 h-5 flex-shrink-0"></i> Functional, integration, and regression testing[cite: 24].</li>
-                        <li class="flex gap-4"><i data-lucide="check" class="text-blue-500 w-5 h-5 flex-shrink-0"></i> Tested REST APIs using Postman & validated JSON[cite: 25].</li>
-                    </ul>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card-creative p-10 rounded-3xl">
-                        <h3 class="text-xl font-bold text-white mb-2 uppercase">WowPlaces</h3>
-                        <p class="text-blue-500 font-bold text-xs mb-4">QA Engineer (2025) [cite: 30]</p>
-                        <p class="text-xs text-slate-400 leading-relaxed italic">Validated user workflows and business logic for web platform[cite: 31, 32].</p>
+                    <div class="card-pro p-8">
+                        <i data-lucide="database" class="text-purple-500 mb-4"></i>
+                        <h4 class="font-bold mb-2">Backend</h4>
+                        <p class="text-xs">REST API validation via Postman and SQL queries[cite: 12].</p>
                     </div>
-                    <div class="card-creative p-10 rounded-3xl">
-                        <h3 class="text-xl font-bold text-white mb-2 uppercase">Antara LLC</h3>
-                        <p class="text-blue-500 font-bold text-xs mb-4">QA Engineer (2024) [cite: 41]</p>
-                        <p class="text-xs text-slate-400 leading-relaxed italic">Executed 200+ manual test cases and performed REST API testing[cite: 42, 43].</p>
+                    <div class="card-pro p-8">
+                        <i data-lucide="cpu" class="text-green-500 mb-4"></i>
+                        <h4 class="font-bold mb-2">AI Logic</h4>
+                        <p class="text-xs">Verification of LLM behavior and conversational flows[cite: 37].</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="ai" class="animate__animated animate__fadeIn">
-            <h2 class="text-4xl font-bold mb-16 text-white border-b border-slate-800 pb-8 uppercase tracking-widest">AI Portfolio</h2>
-            <div class="card-creative p-12 rounded-[3rem] mb-12">
-                <h3 class="text-3xl font-bold text-white mb-6 tracking-tight">AI Assistants Development [cite: 37]</h3>
-                <p class="text-slate-400 mb-10 leading-relaxed">Verified speech recognition, personalization logic, and conversational flows for specialized AI agents[cite: 37].</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="skill-badge text-center">Strength Training Asst</div>
-                    <div class="skill-badge text-center">Home Fitness Asst</div>
-                    <div class="skill-badge text-center">Running Coach Asst</div>
-                    <div class="skill-badge text-center">Cycling Coach Asst</div>
-                    <div class="skill-badge text-center">Wellness Assistant</div>
-                    <div class="skill-badge text-center">QA Mentor Asst</div>
+        <section id="exp" class="section-content animate__animated animate__fadeIn">
+            <h2 class="text-4xl font-extrabold mb-12 flex items-center gap-4">Experience <span class="h-1 flex-1 bg-slate-800"></span></h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card-pro flex flex-col group">
+                    <div class="h-56 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bbda4833effb?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 img-overlay"></div>
+                    </div>
+                    <div class="p-10">
+                        <span class="text-xs font-bold text-blue-500 uppercase mb-2 block">2025 - 2026 [cite: 22]</span>
+                        <h3 class="text-2xl font-bold mb-4">QA Team Lead — Imperia Leads [cite: 22]</h3>
+                        <p class="text-sm mb-6">Leading QA for a high-load CRM system, focused on API stability and data integrity[cite: 23, 25].</p>
+                    </div>
+                </div>
+                <div class="card-pro flex flex-col group">
+                    <div class="h-56 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 img-overlay"></div>
+                    </div>
+                    <div class="p-10">
+                        <span class="text-xs font-bold text-blue-500 uppercase mb-2 block">2025 [cite: 30]</span>
+                        <h3 class="text-2xl font-bold mb-4">QA Engineer — WowPlaces [cite: 30]</h3>
+                        <p class="text-sm mb-6">Conducted workflow validation and regression testing for a global web platform[cite: 31, 33].</p>
+                    </div>
+                </div>
+                <div class="card-pro p-10 bg-slate-900/50">
+                    <h3 class="font-bold text-xl mb-4">Antara LLC [cite: 41]</h3>
+                    <p class="text-xs">Executed 200+ manual test cases for web applications[cite: 42]. API testing with Postman[cite: 43].</p>
+                </div>
+                <div class="card-pro p-10 bg-slate-900/50">
+                    <h3 class="font-bold text-xl mb-4">Tehnosoft LLC [cite: 46]</h3>
+                    <p class="text-xs">Tested 'Adventure and Life' mobile app. Charles Proxy traffic analysis[cite: 47, 49].</p>
                 </div>
             </div>
         </section>
 
-        <section id="education" class="animate__animated animate__fadeIn">
-            <h2 class="text-4xl font-bold mb-16 text-white border-b border-slate-800 pb-8 uppercase tracking-widest">Education</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div class="space-y-12">
+        <section id="ai" class="section-content animate__animated animate__fadeIn">
+            <h2 class="text-4xl font-extrabold mb-12">AI Assistants Portfolio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-pro p-8 border-purple-500/20">
+                    <i data-lucide="dumbbell" class="text-purple-500 mb-4"></i>
+                    <h4 class="font-bold mb-2">Strength Training Asst</h4>
+                    <p class="text-xs">Workout programs & technique guidance.</p>
+                </div>
+                <div class="card-pro p-8 border-purple-500/20">
+                    <i data-lucide="bike" class="text-purple-500 mb-4"></i>
+                    <h4 class="font-bold mb-2">Cycling Coach Asst</h4>
+                    <p class="text-xs">Cycling training programs.</p>
+                </div>
+                <div class="card-pro p-8 border-purple-500/20">
+                    <i data-lucide="home" class="text-purple-500 mb-4"></i>
+                    <h4 class="font-bold mb-2">Home Fitness Asst</h4>
+                    <p class="text-xs">Indoor workout solutions.</p>
+                </div>
+                <div class="card-pro p-8 border-purple-500/20">
+                    <i data-lucide="heart-pulse" class="text-purple-500 mb-4"></i>
+                    <h4 class="font-bold mb-2">Wellness Assistant</h4>
+                    <p class="text-xs">Corporate fitness solutions.</p>
+                </div>
+                <div class="card-pro p-8 border-purple-500/20">
+                    <i data-lucide="user-check" class="text-purple-500 mb-4"></i>
+                    <h4 class="font-bold mb-2">QA Mentor Asst</h4>
+                    <p class="text-xs">Testing education & guidance.</p>
+                </div>
+                <div class="card-pro p-8 border-purple-500/20">
+                    <i data-lucide="run" class="text-purple-500 mb-4"></i>
+                    <h4 class="font-bold mb-2">Running Coach Asst</h4>
+                    <p class="text-xs">Training plans & optimization.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="edu" class="section-content animate__animated animate__fadeIn">
+            <h2 class="text-4xl font-extrabold mb-12">Education</h2>
+            <div class="space-y-6">
+                <div class="card-pro p-10 flex justify-between items-center">
                     <div>
-                        <h4 class="text-xl font-bold text-white mb-2">University of Haifa [cite: 55]</h4>
-                        <p class="text-blue-400 font-bold text-sm uppercase">Master's Degree</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-bold text-white mb-2">Kostroma State University [cite: 56]</h4>
-                        <p class="text-slate-500 font-bold text-sm uppercase">Bachelor's Degree [cite: 57]</p>
+                        <h3 class="text-2xl font-bold">University of Haifa [cite: 55]</h3>
+                        <p class="text-blue-500 font-bold">Master's Degree [cite: 55]</p>
                     </div>
                 </div>
-                <div class="space-y-12">
+                <div class="card-pro p-10 flex justify-between items-center">
                     <div>
-                        <h4 class="text-xl font-bold text-white mb-2">QA.GURU [cite: 52]</h4>
-                        <p class="text-blue-400 font-bold text-sm uppercase italic">Automation: JS & Playwright (2024) [cite: 53]</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-bold text-white mb-2">IT Switcher [cite: 54]</h4>
-                        <p class="text-slate-500 font-bold text-sm uppercase italic">Manual Testing (2023) [cite: 54]</p>
+                        <h3 class="text-2xl font-bold">QA.GURU [cite: 52]</h3>
+                        <p class="text-blue-500 font-bold">Automation: JS & Playwright (2024) [cite: 53]</p>
                     </div>
                 </div>
+            </div>
+            
+            <div class="mt-16 flex gap-8 text-xs font-black uppercase tracking-widest text-slate-500">
+                <span>Hebrew: <span class="text-white">C1 [cite: 20]</span></span>
+                <span>English: <span class="text-white">B1 [cite: 20]</span></span>
+                <span>Russian: <span class="text-white">Native [cite: 20]</span></span>
             </div>
         </section>
 
     </main>
 
     <script>
-        function showPage(pageId) {
-            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        function changePage(pageId, btn) {
+            document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             
             document.getElementById(pageId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            btn.classList.add('active');
             window.scrollTo(0, 0);
         }
         lucide.createIcons();
