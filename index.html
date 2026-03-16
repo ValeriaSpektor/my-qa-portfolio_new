@@ -8,199 +8,172 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0d1117; color: #e2e8f0; scroll-behavior: smooth; }
-        .sidebar { background-color: rgba(22, 27, 34, 0.8); backdrop-filter: blur(20px); border-right: 1px solid #30363d; }
-        .glass-card { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
-        .glass-card:hover { border-color: #3b82f6; transform: translateY(-5px); box-shadow: 0 10px 30px -15px rgba(59, 130, 246, 0.3); }
-        .skill-badge { background: #1f2937; border: 1px solid #374151; color: #60a5fa; transition: all 0.3s; }
-        .skill-badge:hover { border-color: #60a5fa; box-shadow: 0 0 10px rgba(96, 165, 250, 0.5); }
-        .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(13, 17, 23, 0) 80%); }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #05070a; color: #e2e8f0; scroll-behavior: smooth; }
+        .sidebar { background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(20px); border-right: 1px solid #1f2937; }
+        .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, rgba(5, 7, 10, 0) 70%); }
+        .card-creative { background: #0d1117; border: 1px solid #21262d; overflow: hidden; transition: all 0.4s ease; }
+        .card-creative:hover { border-color: #3b82f6; transform: translateY(-5px); box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.3); }
+        .skill-badge { background: #161b22; border: 1px solid #30363d; color: #8b949e; padding: 0.6rem 1rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+        .profile-image { border: 4px solid #1e293b; box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); }
+        p, li { line-height: 1.8; }
+        .image-overlay { background: linear-gradient(to top, #0d1117 10%, transparent 100%); }
     </style>
 </head>
 <body class="flex flex-col md:flex-row min-h-screen">
 
-    <aside class="sidebar w-full md:w-80 p-6 flex flex-col sticky top-0 md:h-screen z-50">
-        <div class="flex items-center gap-3 mb-10">
-            <div class="bg-blue-600 p-2.5 rounded-2xl shadow-lg shadow-blue-500/30">
-                <i data-lucide="scan-eye" class="text-white w-6 h-6"></i>
+    <aside class="sidebar w-full md:w-85 p-10 flex flex-col sticky top-0 md:h-screen z-50">
+        <div class="mb-12 text-center md:text-left">
+            <div class="flex items-center gap-3 mb-8 justify-center md:justify-start">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/40 font-bold text-white">VS</div>
+                <span class="text-2xl font-extrabold tracking-tighter text-white uppercase">Portfolio</span>
             </div>
-            <span class="font-bold text-xl tracking-tight text-white uppercase">VS.Portfolio</span>
+            
+            <img src="photo 2.jpg" alt="Valeria Spektor" onerror="this.src='https://ui-avatars.com/api/?name=Valeria+Spektor&background=2563eb&color=fff&size=512'" class="profile-image w-48 h-48 rounded-3xl object-cover mx-auto md:mx-0 mb-8 animate__animated animate__fadeIn">
+            
+            <h2 class="text-xl font-bold text-white mb-1 uppercase tracking-tight">Valeria Spektor</h2>
+            <p class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em] mb-6">Middle QA Engineer</p>
+            
+            <div class="flex items-center gap-2 justify-center md:justify-start text-xs text-green-500 font-bold bg-green-500/10 py-2 px-4 rounded-full inline-flex">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Available for Hire
+            </div>
         </div>
 
-        <nav class="space-y-1 flex-1 text-sm font-medium">
-            <a href="#about" class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all group">
-                <i data-lucide="sparkles" class="w-5 h-5 text-slate-500 group-hover:text-blue-500"></i> About
-            </a>
-            <a href="#experience" class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all group">
-                <i data-lucide="clapperboard" class="w-5 h-5 text-slate-500 group-hover:text-blue-500"></i> Experience
-            </a>
-            <a href="#skills" class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all group">
-                <i data-lucide="layers" class="w-5 h-5 text-slate-500 group-hover:text-blue-500"></i> Stack
-            </a>
-            <a href="#education" class="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all group">
-                <i data-lucide="graduation-cap" class="w-5 h-5 text-slate-500 group-hover:text-blue-500"></i> Education
-            </a>
+        <nav class="space-y-6 flex-1">
+            <a href="#about" class="flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="user" class="w-4 h-4"></i> About</a>
+            <a href="#experience" class="flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="briefcase" class="w-4 h-4"></i> Projects</a>
+            <a href="#education" class="flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="graduation-cap" class="w-4 h-4"></i> Education</a>
         </nav>
 
-        <div class="mt-auto pt-6 border-t border-slate-800/50 space-y-4">
-            <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
-                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-lg shadow-green-500/50"></div>
-                <span class="text-xs font-bold text-white tracking-widest uppercase">Available for Hire</span>
-            </div>
-            <div class="text-[11px] text-slate-600 flex gap-4">
-                vlapin84@gmail.com | Israel
-            </div>
+        <div class="mt-auto pt-10 border-t border-slate-800 flex gap-6 justify-center md:justify-start text-slate-500">
+            <a href="https://t.me/ValeriaSpektor" target="_blank" class="hover:text-white transition-colors"><i data-lucide="send"></i></a>
+            <a href="mailto:vlapin84@gmail.com" class="hover:text-white transition-colors"><i data-lucide="mail"></i></a>
         </div>
     </aside>
 
-    <main class="flex-1 hero-gradient overflow-x-hidden">
+    <main class="flex-1 hero-gradient overflow-x-hidden pb-32">
         
-        <header id="about" class="px-8 md:px-16 pt-24 pb-32 max-w-7xl">
-            <div class="animate__animated animate__fadeIn">
-                <span class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-4 block">Middle QA Engineer | Haifa, Israel</span>
-                <h1 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none">
-                    Quality <br> is not an act, <br> it's a <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">habit.</span>
-                </h1>
-                <p class="text-lg text-slate-400 leading-relaxed max-w-2xl mb-12">
-                    QA Engineer with 2+ years of experience. I ensure digital excellence through manual testing of high-load CRM systems, API validation, and AI-driven conversational logic.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="https://t.me/ValeriaSpektor" target="_blank" class="bg-white hover:bg-blue-600 text-black hover:text-white px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2 text-sm uppercase tracking-widest">
-                        <i data-lucide="send" class="w-4 h-4"></i> Send PM
-                    </a>
-                </div>
-            </div>
-        </header>
+        <section id="about" class="px-8 md:px-24 pt-32 pb-24 max-w-6xl">
+            <h1 class="text-6xl md:text-8xl font-extrabold text-white mb-12 tracking-tighter leading-[1.05]">
+                Quality <br> without <span class="text-blue-500">Compromise.</span>
+            </h1>
+            <p class="text-xl text-slate-400 leading-relaxed max-w-4xl">
+                I am a QA Professional with 2+ years of experience[cite: 10]. I specialize in ensuring digital excellence through manual testing of high-load CRM systems [cite: 10, 27], AI products [cite: 10, 41], and web platforms[cite: 10, 35]. Skilled in API validation [cite: 17, 30], SQL [cite: 17, 31], and structured testing processes[cite: 12].
+            </p>
+        </section>
 
-        <section id="experience" class="px-8 md:px-16 pb-32 max-w-[90rem]">
-            <h2 class="text-2xl font-bold mb-12 text-white flex items-center gap-4"><i data-lucide="briefcase" class="text-blue-500"></i> Career Path</h2>
-            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
-                
-                <div class="glass-card rounded-3xl p-8 flex flex-col group">
-                    <div class="h-48 rounded-2xl overflow-hidden mb-6 border border-slate-700/50">
-                        <img src="https://images.unsplash.com/photo-1551288049-bbda4833effb?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Imperia CRM Dashboard">
+        <section id="experience" class="px-8 md:px-24 mb-32 max-w-[90rem]">
+            <h2 class="text-3xl font-bold mb-16 text-white border-l-4 border-blue-600 pl-6 uppercase tracking-widest">Career & Projects</h2>
+            
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
+                <div class="card-creative rounded-[2.5rem] flex flex-col group">
+                    <div class="h-56 relative">
+                        <img src="https://images.unsplash.com/photo-1551288049-bbda4833effb?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute bottom-6 left-8"><span class="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Active Role</span></div>
                     </div>
-                    <div class="flex-1">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <h3 class="text-xl font-bold text-white">QA Engineer / QA Team Lead</h3>
-                            <span class="text-blue-400 text-sm font-bold whitespace-nowrap">Oct 2025 — Mar 2026</span>
-                        </div>
-                        <p class="text-blue-400/80 font-bold text-xs mb-6 uppercase tracking-wider">Imperia Leads (High-load CRM System)</p>
-                        <ul class="text-sm text-slate-400 space-y-3 list-none pl-1">
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="text-blue-500 w-4 h-4 mt-1 flex-shrink-0"></i> Led QA activities for a high-traffic CRM.</li>
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="text-blue-500 w-4 h-4 mt-1 flex-shrink-0"></i> Performed complex functional and regression testing.</li>
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="text-blue-500 w-4 h-4 mt-1 flex-shrink-0"></i> Conducted REST API testing via Postman.</li>
+                    <div class="p-10">
+                        <h3 class="text-2xl font-bold text-white mb-2">QA Team Lead</h3>
+                        <p class="text-blue-400 font-bold text-xs uppercase mb-6 tracking-widest">Imperia Leads (High-load CRM) [cite: 27]</p>
+                        <ul class="text-sm text-slate-400 space-y-4">
+                            <li class="flex gap-3"><i data-lucide="check" class="text-blue-500 w-4 h-4 mt-1"></i> Led QA for high-load CRM systems[cite: 28].</li>
+                            <li class="flex gap-3"><i data-lucide="check" class="text-blue-500 w-4 h-4 mt-1"></i> REST API testing & JSON validation[cite: 30].</li>
+                            <li class="flex gap-3"><i data-lucide="check" class="text-blue-500 w-4 h-4 mt-1"></i> SQL data analysis for defect identification[cite: 31].</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="glass-card rounded-3xl p-8 flex flex-col group">
-                    <div class="h-48 rounded-2xl overflow-hidden mb-6 border border-slate-700/50">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Conversational AI Bot">
+                <div class="card-creative rounded-[2.5rem] flex flex-col group">
+                    <div class="h-56 relative">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute bottom-6 left-8"><span class="bg-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">AI Specialized</span></div>
                     </div>
-                    <div class="flex-1">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <h3 class="text-xl font-bold text-white">QA Engineer / QA Team Lead</h3>
-                            <span class="text-slate-500 text-sm whitespace-nowrap">Jun 2024 — Jan 2025</span>
-                        </div>
-                        <p class="text-slate-400 font-bold text-xs mb-6 uppercase tracking-wider">Chatbot Studio AI (AI Conversational Agents)</p>
-                        <ul class="text-sm text-slate-400 space-y-3 pl-1">
-                            <li class="flex items-start gap-2"><i data-lucide="bot" class="text-purple-500 w-4 h-4 mt-1 flex-shrink-0"></i> Implemented QA processes for AI assistants.</li>
-                            <li class="flex items-start gap-2"><i data-lucide="bot" class="text-purple-500 w-4 h-4 mt-1 flex-shrink-0"></i> Tested conversational flows and voice interactions.</li>
-                            <li class="flex items-start gap-2"><i data-lucide="bot" class="text-purple-500 w-4 h-4 mt-1 flex-shrink-0"></i> Verified speech recognition and AI logic branching.</li>
+                    <div class="p-10">
+                        <h3 class="text-2xl font-bold text-white mb-2">QA Lead / AI Specialist</h3>
+                        <p class="text-purple-400 font-bold text-xs uppercase mb-6 tracking-widest">Chatbot Studio AI [cite: 41]</p>
+                        <ul class="text-sm text-slate-400 space-y-4 mb-6">
+                            <li class="flex gap-3"><i data-lucide="bot" class="text-purple-500 w-4 h-4 mt-1"></i> Tested conversational flows & voice logic.</li>
+                            <li class="flex gap-3"><i data-lucide="bot" class="text-purple-500 w-4 h-4 mt-1"></i> Verified speech recognition & personalization.</li>
                         </ul>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 xl:col-span-2">
-                    <div class="glass-card p-8 rounded-3xl flex items-center gap-6">
-                        <i data-lucide="layers" class="text-slate-700 w-16 h-16"></i>
-                        <div>
-                            <h3 class="text-lg font-bold text-white mb-2">QA Engineer</h3>
-                            <p class="text-xs text-slate-500 mb-2">Antara LLC (2024)</p>
-                            <p class="text-sm text-slate-400">Executed 200+ manual test cases for web applications, collaborating with developers.</p>
-                        </div>
-                    </div>
-                    <div class="glass-card p-8 rounded-3xl flex items-center gap-6 border-blue-500/10">
-                        <i data-lucide="smartphone" class="text-blue-700 w-16 h-16"></i>
-                        <div>
-                            <h3 class="text-lg font-bold text-white mb-2">QA Intern</h3>
-                            <p class="text-xs text-slate-500 mb-2">Tehnosoft LLC (2023)</p>
-                            <p class="text-sm text-slate-400">Mobile app testing for 'Adventure and Life'. Used Charles Proxy for traffic data validation.</p>
+                        <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase mb-2 tracking-widest">AI Portfolio Highlights:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[9px] bg-slate-800 px-2 py-1 rounded">Strength Training Asst</span>
+                                <span class="text-[9px] bg-slate-800 px-2 py-1 rounded">Cycling Coach</span>
+                                <span class="text-[9px] bg-slate-800 px-2 py-1 rounded">QA Mentor Asst</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section id="skills" class="px-8 md:px-16 pb-32 max-w-7xl">
-            <div class="glass-card rounded-[3rem] p-12 bg-gradient-to-br from-slate-900 to-slate-950">
-                <h2 class="text-4xl font-extrabold text-white mb-12 tracking-tighter">Tech Toolbox</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                    <div class="skill-badge px-6 py-4 rounded-xl text-sm font-bold text-center">Postman (API)</div>
-                    <div class="skill-badge px-6 py-4 rounded-xl text-sm font-bold text-center">SQL (DML)</div>
-                    <div class="skill-badge px-6 py-4 rounded-xl text-sm font-bold text-center">Charles Proxy</div>
-                    <div class="skill-badge px-6 py-4 rounded-xl text-sm font-bold text-center">JSON/XML</div>
-                    <div class="skill-badge px-6 py-4 rounded-xl text-sm font-bold text-center">Jira / Trello</div>
-                    <div class="skill-badge px-6 py-4 rounded-xl text-sm font-bold text-center">Playwright (Basic)</div>
-                    <div class="skill-badge px-6 py-4 rounded-xl text-sm font-bold text-center">UI/UX Testing</div>
-                    <div class="skill-badge px-6 py-4 rounded-xl text-sm font-bold text-center">Regression</div>
-                    <div class="skill-badge px-6 py-4 rounded-xl text-sm font-bold text-center">AI Agents logic</div>
-                    <div class="skill-badge px-6 py-4 rounded-xl text-sm font-bold text-center">Mobile Testing</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+                <div class="card-creative p-8 rounded-3xl">
+                    <h3 class="font-bold text-white mb-2">WowPlaces [cite: 35]</h3>
+                    <p class="text-xs text-blue-500 mb-4 font-bold uppercase tracking-widest">Web Platform QA</p>
+                    <p class="text-xs text-slate-500">Validated workflows and business logic for global web products[cite: 36, 37].</p>
+                </div>
+                <div class="card-creative p-8 rounded-3xl">
+                    <h3 class="font-bold text-white mb-2">Antara LLC [cite: 46]</h3>
+                    <p class="text-xs text-blue-500 mb-4 font-bold uppercase tracking-widest">Manual QA Engineer</p>
+                    <p class="text-xs text-slate-500">Executed 200+ manual test cases for web applications[cite: 47].</p>
+                </div>
+                <div class="card-creative p-8 rounded-3xl">
+                    <h3 class="font-bold text-white mb-2">Tehnosoft LLC [cite: 51]</h3>
+                    <p class="text-xs text-blue-500 mb-4 font-bold uppercase tracking-widest">Mobile QA Intern</p>
+                    <p class="text-xs text-slate-500">Tested 'Adventure and Life' app using Charles Proxy[cite: 52, 54].</p>
                 </div>
             </div>
         </section>
 
-        <section id="education" class="px-8 md:px-16 pb-32 max-w-7xl">
-            <h2 class="text-2xl font-bold mb-12 text-white border-l-4 border-blue-600 pl-4">Education</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-6 rounded-2xl">
-                    <h4 class="font-bold text-white mb-2">University of Haifa</h4>
-                    <p class="text-sm text-slate-400">Master's Degree (Israel)</p>
-                </div>
-                <div class="glass-card p-6 rounded-2xl">
-                    <h4 class="font-bold text-white mb-2">QA.GURU (2024)</h4>
-                    <p class="text-sm text-slate-400">Automation Testing (JS/Playwright)</p>
-                </div>
-                <div class="glass-card p-6 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-950 border-blue-500/20">
-                    <h4 class="font-bold text-white mb-2">Languages</h4>
-                    <p class="text-xs text-blue-400 uppercase font-black tracking-widest">Hebrew (C1) | English (B1) | Russian (Native)</p>
-                </div>
+        <section id="skills" class="px-8 md:px-24 mb-32 max-w-6xl">
+            <h2 class="text-2xl font-bold mb-12 text-white uppercase tracking-widest flex items-center gap-4"><i data-lucide="zap" class="text-yellow-500"></i> Expertise</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="skill-badge">Postman [cite: 17, 19]</div>
+                <div class="skill-badge">SQL (DML) [cite: 17]</div>
+                <div class="skill-badge">Charles Proxy [cite: 19, 54]</div>
+                <div class="skill-badge">Jira [cite: 19, 39]</div>
+                <div class="skill-badge">JSON/XML [cite: 17, 30]</div>
+                <div class="skill-badge">Playwright [cite: 58]</div>
+                <div class="skill-badge">Agile/Scrum [cite: 11, 21]</div>
+                <div class="skill-badge">Bug Reporting [cite: 23, 50]</div>
             </div>
         </section>
 
-        <footer class="px-16 py-8 text-center text-slate-700 text-xs border-t border-slate-800/50">
-            © 2026 Valeria Spektor • Handcrafted in Haifa, Israel
-        </footer>
+        <section id="education" class="px-8 md:px-24 max-w-6xl">
+            <h2 class="text-2xl font-bold mb-12 text-white border-l-4 border-blue-600 pl-6 uppercase tracking-widest">Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="space-y-8">
+                    <div class="border-l-2 border-slate-800 pl-6">
+                        <h4 class="font-bold text-white text-lg">Haifa University [cite: 60]</h4>
+                        <p class="text-sm text-slate-500 italic">Master's Degree, Tourism & Geography [cite: 60]</p>
+                    </div>
+                    <div class="border-l-2 border-slate-800 pl-6">
+                        <h4 class="font-bold text-white text-lg">Kostroma State University [cite: 61]</h4>
+                        <p class="text-sm text-slate-500 italic">Bachelor's Degree, Tourism & Service [cite: 62]</p>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="border-l-2 border-blue-600 pl-6">
+                        <h4 class="font-bold text-white text-lg">QA.GURU (2024) [cite: 57]</h4>
+                        <p class="text-sm text-slate-400">Automation: JS & Playwright [cite: 58]</p>
+                    </div>
+                    <div class="border-l-2 border-slate-800 pl-6">
+                        <h4 class="font-bold text-white text-lg">IT Switcher (2023) [cite: 59]</h4>
+                        <p class="text-sm text-slate-500">Manual Testing & Cypress [cite: 59]</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 flex gap-6 text-[10px] font-black uppercase tracking-[0.2em] text-blue-500">
+                <span>Hebrew (C1) [cite: 25]</span>
+                <span class="text-slate-500">English (B1) [cite: 25]</span>
+                <span class="text-slate-800">Russian (Native) [cite: 25]</span>
+            </div>
+        </section>
+
     </main>
-
-    <div class="fixed bottom-6 right-6 z-[100]">
-        <button onclick="document.getElementById('bot-chat').classList.toggle('hidden')" class="bg-blue-600 hover:bg-blue-700 text-white w-14 h-14 rounded-2xl shadow-xl flex items-center justify-center transition-transform hover:rotate-12 group">
-            <i data-lucide="brain-circuit" class="group-hover:scale-110"></i>
-        </button>
-        <div id="bot-chat" class="hidden absolute bottom-20 right-0 w-80 glass-card rounded-2xl overflow-hidden shadow-2xl animate__animated animate__fadeInUp">
-            <div class="bg-blue-600 p-4 font-bold text-sm flex justify-between items-center text-white">
-                <span>ISTQB Assistant</span>
-                <i data-lucide="x" class="w-4 h-4 cursor-pointer" onclick="document.getElementById('bot-chat').classList.add('hidden')"></i>
-            </div>
-            <div class="p-5 text-sm">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center border border-blue-500/30">
-                        <i data-lucide="bot" class="text-blue-400 w-5 h-5"></i>
-                    </div>
-                    <div class="text-xs text-slate-300">Valeria Spektor is actively preparing for her **ISTQB Foundation Level** certification.</div>
-                </div>
-                <div class="space-y-1 mb-4">
-                    <p class="text-[10px] text-slate-500 text-right uppercase font-bold tracking-widest">Readiness</p>
-                    <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                        <div class="h-full bg-blue-500 w-[85%] rounded-full animate-pulse"></div>
-                    </div>
-                </div>
-                <a href="mailto:vlapin84@gmail.com" class="block w-full bg-slate-700 text-center py-2 rounded-lg font-bold text-xs hover:bg-slate-600">Hire Valeria Spektor</a>
-            </div>
-        </div>
-    </div>
 
     <script>lucide.createIcons();</script>
 </body>
