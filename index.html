@@ -9,23 +9,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #05070a; color: #e2e8f0; scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #05070a; color: #e2e8f0; scroll-behavior: smooth; }
         .sidebar { background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(20px); border-right: 1px solid #1f2937; }
         .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, rgba(5, 7, 10, 0) 70%); }
-        .card-creative { background: #0d1117; border: 1px solid #21262d; transition: all 0.4s ease; margin-bottom: 2rem; }
-        .card-creative:hover { border-color: #3b82f6; box-shadow: 0 15px 40px -20px rgba(59, 130, 246, 0.3); }
-        .skill-badge { background: #161b22; border: 1px solid #30363d; color: #8b949e; padding: 0.6rem 1rem; border-radius: 12px; font-size: 0.8rem; }
-        .profile-image { border: 4px solid #1e293b; box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); background: #111827; }
-        p, li { line-height: 1.8; margin-bottom: 0.5rem; }
-        section { display: none; }
-        section.active { display: block; }
+        .card-creative { background: #0d1117; border: 1px solid #21262d; overflow: hidden; transition: all 0.4s ease; margin-bottom: 2.5rem; }
+        .card-creative:hover { border-color: #3b82f6; transform: translateY(-5px); box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.3); }
+        .image-overlay { background: linear-gradient(0deg, #0d1117 20%, transparent 100%); }
+        .profile-image { border: 4px solid #1e293b; box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); }
+        p, li { line-height: 1.8; }
     </style>
 </head>
 <body class="flex flex-col md:flex-row min-h-screen">
 
     <aside class="sidebar w-full md:w-80 p-10 flex flex-col sticky top-0 md:h-screen z-50">
-        <div class="mb-10 text-center md:text-left">
-            <div class="flex items-center gap-3 mb-6 justify-center md:justify-start">
+        <div class="mb-12 text-center md:text-left">
+            <div class="flex items-center gap-3 mb-8 justify-center md:justify-start">
                 <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/40 font-bold text-white uppercase">VS</div>
                 <span class="text-2xl font-extrabold tracking-tighter text-white uppercase">Portfolio</span>
             </div>
@@ -40,168 +38,124 @@
             </div>
         </div>
 
-        <nav class="space-y-4 flex-1 mt-6">
-            <button onclick="showSection('about')" class="nav-btn w-full flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="user" class="w-4 h-4"></i> About</button>
-            <button onclick="showSection('experience')" class="nav-btn w-full flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="briefcase" class="w-4 h-4"></i> Experience</button>
-            <button onclick="showSection('skills')" class="nav-btn w-full flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="layers" class="w-4 h-4"></i> Tech Stack</button>
-            <button onclick="showSection('education')" class="nav-btn w-full flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="graduation-cap" class="w-4 h-4"></i> Education</button>
+        <nav class="space-y-6 flex-1">
+            <a href="#about" class="flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="user" class="w-4 h-4"></i> About</a>
+            <a href="#experience" class="flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="briefcase" class="w-4 h-4"></i> Experience</a>
+            <a href="#projects" class="flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="bot" class="w-4 h-4"></i> AI Projects</a>
+            <a href="#education" class="flex items-center gap-4 text-slate-400 hover:text-blue-500 transition-all font-semibold uppercase text-xs tracking-widest"><i data-lucide="graduation-cap" class="w-4 h-4"></i> Education</a>
         </nav>
-
-        <div class="mt-auto pt-8 border-t border-slate-800 flex gap-6 justify-center md:justify-start text-slate-500">
-            <a href="https://t.me/ValeriaSpektor" target="_blank" class="hover:text-white transition-colors"><i data-lucide="send"></i></a>
-            <a href="mailto:vlapin84@gmail.com" class="hover:text-white transition-colors"><i data-lucide="mail"></i></a>
-        </div>
     </aside>
 
-    <main class="flex-1 hero-gradient overflow-x-hidden p-8 md:p-20">
+    <main class="flex-1 hero-gradient overflow-x-hidden pb-32">
         
-        <section id="about" class="active animate__animated animate__fadeIn">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-8 leading-tight">Quality without <br><span class="text-blue-500">Compromise.</span></h1>
-            <p class="text-xl text-slate-400 leading-relaxed max-w-3xl mb-10">QA Engineer with 2+ years of experience in manual testing of web and mobile applications[cite: 5]. Specialized in CRM systems, AI products, and high-load web platforms[cite: 5].</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card-creative p-8 rounded-3xl">
-                    <h3 class="text-blue-500 font-bold mb-4 uppercase text-xs tracking-widest">Core Summary</h3>
-                    <p class="text-sm text-slate-400">Experienced in functional, regression, and API testing, creating test documentation, and collaborating in Agile environments[cite: 6]. Strong analytical mindset with attention to detail[cite: 7].</p>
-                </div>
-                <div class="card-creative p-8 rounded-3xl">
-                    <h3 class="text-blue-500 font-bold mb-4 uppercase text-xs tracking-widest">Languages</h3>
-                    <div class="space-y-2 text-sm">
-                        <p class="text-slate-300">Hebrew: <span class="text-blue-500 font-bold">C1</span> [cite: 20]</p>
-                        <p class="text-slate-300">English: <span class="text-blue-500 font-bold">B1</span> [cite: 20]</p>
-                        <p class="text-slate-300">Russian: <span class="text-blue-500 font-bold">Native</span> [cite: 20]</p>
-                    </div>
-                </div>
-            </div>
+        <section id="about" class="px-8 md:px-24 pt-32 pb-24 max-w-6xl">
+            <h1 class="text-6xl md:text-8xl font-extrabold text-white mb-12 tracking-tighter leading-[1.05]">
+                Quality <br> without <span class="text-blue-500">Compromise.</span>
+            </h1>
+            <p class="text-xl text-slate-400 leading-relaxed max-w-4xl">
+                QA Engineer with 2+ years of experience in manual testing[cite: 5]. Specialized in high-load CRM systems, AI-driven products, and complex web platforms[cite: 5]. Experienced in API validation, SQL, and Agile methodologies[cite: 6, 12].
+            </p>
         </section>
 
-        <section id="experience" class="animate__animated animate__fadeIn">
-            <h2 class="text-3xl font-bold mb-12 text-white border-b border-slate-800 pb-4 uppercase tracking-widest">Career Path</h2>
+        <section id="experience" class="px-8 md:px-24 mb-32 max-w-[90rem]">
+            <h2 class="text-3xl font-bold mb-16 text-white border-l-4 border-blue-600 pl-6 uppercase tracking-widest">Career Path</h2>
             
-            <div class="card-creative p-10 rounded-[2.5rem] mb-12">
-                <div class="flex flex-col md:flex-row justify-between mb-6">
-                    <h3 class="text-2xl font-bold text-white">QA Engineer / Team Lead</h3>
-                    <span class="text-blue-500 font-bold">Oct 2025 — Mar 2026</span>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
+                <div class="card-creative rounded-[2.5rem] flex flex-col group">
+                    <div class="h-56 relative">
+                        <img src="https://images.unsplash.com/photo-1551288049-bbda4833effb?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 image-overlay"></div>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-2xl font-bold text-white mb-2">QA Team Lead / Engineer</h3>
+                        <p class="text-blue-400 font-bold text-xs uppercase mb-6 tracking-widest">Imperia Leads (High-load CRM) [cite: 22]</p>
+                        <ul class="text-sm text-slate-400 space-y-4">
+                            <li>• Led QA activities for a high-load CRM system[cite: 23].</li>
+                            <li>• Functional, integration, and regression testing[cite: 24].</li>
+                            <li>• REST API testing using Postman & JSON validation[cite: 25].</li>
+                        </ul>
+                    </div>
                 </div>
-                <p class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-6">Imperia Leads (High-load CRM) [cite: 22]</p>
-                <ul class="space-y-3 text-slate-400 text-sm">
-                    <li>• Led QA activities for a high-load CRM system[cite: 23].</li>
-                    <li>• Performed functional, integration, and regression testing[cite: 24].</li>
-                    <li>• Tested REST APIs using Postman and validated JSON responses[cite: 25].</li>
-                    <li>• Analyzed logs, metrics, and SQL data to identify defects[cite: 26].</li>
-                </ul>
+
+                <div class="card-creative rounded-[2.5rem] flex flex-col group">
+                    <div class="h-56 relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 image-overlay"></div>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-2xl font-bold text-white mb-2">QA Engineer</h3>
+                        <p class="text-blue-400 font-bold text-xs uppercase mb-6 tracking-widest">WowPlaces [cite: 30]</p>
+                        <ul class="text-sm text-slate-400 space-y-4">
+                            <li>• Conducted functional testing of a web platform[cite: 31].</li>
+                            <li>• Validated user workflows and business logic[cite: 32].</li>
+                            <li>• API checks and server response validation[cite: 35].</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <div class="card-creative p-10 rounded-[2.5rem] mb-12 border-blue-900/20">
-                <div class="flex flex-col md:flex-row justify-between mb-6">
-                    <h3 class="text-2xl font-bold text-white">QA Engineer</h3>
-                    <span class="text-blue-500 font-bold">Jun 2025 — Sep 2025</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+                <div class="card-creative p-10 rounded-[2.5rem]">
+                    <h3 class="text-xl font-bold text-white mb-2">Antara LLC</h3>
+                    <p class="text-blue-400 font-bold text-[10px] mb-4 uppercase tracking-widest tracking-widest">QA Engineer (2024) [cite: 41]</p>
+                    <p class="text-sm text-slate-400">Executed 200+ manual test cases and performed REST API testing with Postman[cite: 42, 43].</p>
                 </div>
-                <p class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-6">WowPlaces [cite: 30]</p>
-                <ul class="space-y-3 text-slate-400 text-sm">
-                    <li>• Conducted functional testing of a web platform[cite: 31].</li>
-                    <li>• Validated user workflows and business logic[cite: 32].</li>
-                    <li>• Prepared regression scenarios and test documentation[cite: 33].</li>
-                    <li>• Performed API checks and validated server responses[cite: 35].</li>
-                </ul>
-            </div>
-
-            <div class="card-creative p-10 rounded-[2.5rem] mb-12">
-                <div class="flex flex-col md:flex-row justify-between mb-6">
-                    <h3 class="text-2xl font-bold text-white">QA Engineer / QA Team Lead</h3>
-                    <span class="text-blue-500 font-bold">Jun 2024 — Jan 2025</span>
+                <div class="card-creative p-10 rounded-[2.5rem]">
+                    <h3 class="text-xl font-bold text-white mb-2">Tehnosoft LLC</h3>
+                    <p class="text-blue-400 font-bold text-[10px] mb-4 uppercase tracking-widest tracking-widest">QA Intern (2023) [cite: 46]</p>
+                    <p class="text-sm text-slate-400">Tested mobile application 'Adventure and Life' and performed stress testing with Charles Proxy[cite: 47, 49].</p>
                 </div>
-                <p class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-6">Chatbot Studio AI [cite: 36, 38]</p>
-                <ul class="space-y-3 text-slate-400 text-sm">
-                    <li>• Implemented QA processes for AI assistant projects[cite: 37].</li>
-                    <li>• Tested conversational flows, voice interactions, and speech recognition[cite: 37].</li>
-                    <li>• Verified personalization logic and developed test cases for AI assistants[cite: 37, 39].</li>
-                </ul>
             </div>
+        </section>
 
+        <section id="projects" class="px-8 md:px-24 mb-32 max-w-6xl">
+            <h2 class="text-3xl font-bold mb-12 text-white border-l-4 border-purple-600 pl-6 uppercase tracking-widest">AI Assistants Portfolio</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card-creative p-8 rounded-3xl">
-                    <h3 class="font-bold text-white mb-2">Antara LLC</h3>
-                    <p class="text-blue-500 font-bold text-[10px] mb-4 uppercase">QA Engineer (Jan — May 2024) [cite: 41]</p>
-                    <p class="text-xs text-slate-400 mb-2">• Executed 200+ manual test cases[cite: 42].</p>
-                    <p class="text-xs text-slate-400">• Performed REST API testing with Postman[cite: 43].</p>
+                <div class="glass-card p-10 rounded-[2.5rem] border-purple-500/20">
+                    <h4 class="text-purple-400 font-bold mb-6 flex items-center gap-3 tracking-widest uppercase text-xs">
+                        <i data-lucide="bot"></i> Specialized AI Agents
+                    </h4>
+                    <ul class="text-sm text-slate-400 space-y-4">
+                        <li>• Strength Training — Workout guidance.</li>
+                        <li>• Home Fitness — Indoor workout solutions.</li>
+                        <li>• Running Coach — Training plans & optimization.</li>
+                    </ul>
                 </div>
-                <div class="card-creative p-8 rounded-3xl">
-                    <h3 class="font-bold text-white mb-2">Tehnosoft LLC</h3>
-                    <p class="text-blue-500 font-bold text-[10px] mb-4 uppercase">Intern (Sep — Nov 2023) [cite: 46]</p>
-                    <p class="text-xs text-slate-400">• Tested mobile application 'Adventure and Life'[cite: 47].</p>
-                    <p class="text-xs text-slate-400">• Performed stress testing with Charles Proxy[cite: 49].</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="animate__animated animate__fadeIn">
-            <h2 class="text-3xl font-bold mb-12 text-white border-b border-slate-800 pb-4 uppercase tracking-widest">Tech Stack</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div>
-                    <h4 class="text-blue-500 font-bold mb-4 uppercase text-[10px]">Testing [cite: 9]</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge">Functional</span><span class="skill-badge">Regression</span>
-                        <span class="skill-badge">Smoke</span><span class="skill-badge">Exploratory</span>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-blue-500 font-bold mb-4 uppercase text-[10px]">API & Data [cite: 11]</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge">Postman</span><span class="skill-badge">REST API</span>
-                        <span class="skill-badge">SQL</span><span class="skill-badge">JSON</span>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-blue-500 font-bold mb-4 uppercase text-[10px]">Tools [cite: 13]</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge">Jira</span><span class="skill-badge">Confluence</span>
-                        <span class="skill-badge">Charles Proxy</span>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-blue-500 font-bold mb-4 uppercase text-[10px]">Docs [cite: 17]</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge">Test Cases</span><span class="skill-badge">Bug Reports</span>
-                    </div>
+                <div class="glass-card p-10 rounded-[2.5rem] border-purple-500/20">
+                    <h4 class="text-purple-400 font-bold mb-6 flex items-center gap-3 tracking-widest uppercase text-xs">
+                        <i data-lucide="cpu"></i> Coaching & Support
+                    </h4>
+                    <ul class="text-sm text-slate-400 space-y-4">
+                        <li>• Cycling Coach — Training programs.</li>
+                        <li>• Corporate Wellness — Enterprise fitness.</li>
+                        <li>• QA Mentor — Testing education guidance.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section id="education" class="animate__animated animate__fadeIn">
-            <h2 class="text-3xl font-bold mb-12 text-white border-b border-slate-800 pb-4 uppercase tracking-widest">Education</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="space-y-8">
-                    <div>
-                        <h4 class="text-xl font-bold text-white">University of Haifa [cite: 55]</h4>
-                        <p class="text-blue-400 font-bold text-sm mb-2">Master's Degree, Tourism & Geography [cite: 55]</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-bold text-white">Kostroma State University [cite: 56]</h4>
-                        <p class="text-slate-400 font-bold text-sm">Bachelor's Degree, Tourism & Service [cite: 57]</p>
-                    </div>
+        <section id="education" class="px-8 md:px-24 max-w-6xl">
+            <h2 class="text-3xl font-bold mb-16 text-white border-b border-slate-800 pb-8 uppercase tracking-widest">Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-sm text-slate-400">
+                <div>
+                    <h4 class="text-white font-bold mb-2">University of Haifa [cite: 55]</h4>
+                    <p>Master's Degree, Tourism & Geography [cite: 55]</p>
                 </div>
-                <div class="space-y-8">
-                    <div class="border-l-4 border-blue-600 pl-6">
-                        <h4 class="text-xl font-bold text-white">QA.GURU (2024) [cite: 52]</h4>
-                        <p class="text-blue-400 font-bold text-sm">Automation Testing (JS & Playwright) [cite: 53]</p>
-                    </div>
-                    <div class="border-l-4 border-slate-800 pl-6">
-                        <h4 class="text-xl font-bold text-white">IT Switcher (2023) [cite: 54]</h4>
-                        <p class="text-slate-400 font-bold text-sm">Manual Testing & Cypress Basics [cite: 54]</p>
-                    </div>
+                <div>
+                    <h4 class="text-white font-bold mb-2">QA.GURU (2024) [cite: 52]</h4>
+                    <p>Automation: JS & Playwright [cite: 53]</p>
                 </div>
+            </div>
+            
+            <div class="mt-20 flex flex-wrap gap-4 text-[10px] font-black uppercase tracking-[0.2em] text-blue-500">
+                <span>Hebrew (C1) [cite: 20]</span>
+                <span class="text-slate-500">English (B1) [cite: 20]</span>
+                <span class="text-slate-800">Russian (Native) [cite: 20]</span>
             </div>
         </section>
 
     </main>
 
-    <script>
-        function showSection(id) {
-            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            window.scrollTo(0,0);
-        }
-        lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
