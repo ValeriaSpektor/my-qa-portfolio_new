@@ -8,42 +8,40 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #05070a; color: #e2e8f0; scroll-behavior: smooth; overflow-x: hidden; }
-        .sidebar { background: rgba(13, 17, 23, 0.98); backdrop-filter: blur(20px); border-right: 1px solid #1f2937; }
-        .nav-btn { transition: all 0.3s ease; border-radius: 12px; margin-bottom: 8px; text-align: left; width: 100%; display: flex; align-items: center; gap: 1rem; padding: 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; }
-        .nav-btn.active { background: #2563eb; color: white; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); }
-        .card-pro { background: #0d1117; border: 1px solid #21262d; border-radius: 24px; overflow: hidden; transition: all 0.4s ease; }
-        .card-pro:hover { border-color: #2563eb; transform: translateY(-5px); box-shadow: 0 20px 40px -20px rgba(37, 99, 235, 0.3); }
+        .sidebar { background: rgba(13, 17, 23, 0.98); backdrop-filter: blur(30px); border-right: 1px solid #1f2937; }
+        .nav-btn { transition: all 0.4s ease; border-radius: 16px; margin-bottom: 8px; text-align: left; width: 100%; display: flex; align-items: center; gap: 1rem; padding: 1.2rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; }
+        .nav-btn.active { background: #2563eb; color: white; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3); }
+        .card-canva { background: #0d1117; border: 1px solid #21262d; border-radius: 32px; overflow: hidden; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-canva:hover { border-color: #2563eb; transform: translateY(-8px); box-shadow: 0 30px 60px -20px rgba(37, 99, 235, 0.25); }
         .section-content { display: none; }
         .section-content.active { display: block; }
-        .img-overlay { background: linear-gradient(to top, #0d1117 15%, transparent 100%); }
+        .img-premium { filter: grayscale(100%) contrast(1.1); transition: all 0.7s ease; }
+        .card-canva:hover .img-premium { filter: grayscale(0%); transform: scale(1.05); }
+        .gradient-text { background: linear-gradient(90deg, #60a5fa, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         p, li { line-height: 1.8; color: #94a3b8; }
-        h1, h2, h3 { color: white; letter-spacing: -0.02em; }
     </style>
 </head>
 <body class="flex flex-col md:flex-row min-h-screen">
 
     <aside class="sidebar w-full md:w-80 p-8 flex flex-col sticky top-0 md:h-screen z-50">
         <div class="mb-10">
-            <div class="flex items-center gap-3 mb-8">
-                <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/20 font-extrabold text-white text-xl uppercase">VS</div>
-                <div>
-                    <h2 class="font-extrabold text-lg leading-tight uppercase">Valeria</h2>
-                    <p class="text-[10px] text-blue-500 font-bold tracking-[0.2em] uppercase">Middle QA Engineer</p>
-                </div>
+            <div class="flex items-center gap-3 mb-10">
+                <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-xl font-black text-white text-xl">VS</div>
+                <h2 class="font-extrabold text-lg leading-tight text-white uppercase tracking-tighter">Valeria <br> <span class="text-blue-500">Spektor</span></h2>
             </div>
             
-            <div class="relative group mb-10">
-                <img src="photo 2.jpg" alt="Valeria Spektor" onerror="this.src='https://ui-avatars.com/api/?name=Valeria+Spektor&background=2563eb&color=fff&size=512'" class="w-full aspect-square rounded-[2rem] object-cover border-4 border-slate-800 shadow-2xl">
-                <div class="absolute -bottom-3 -right-3 bg-green-500 text-white p-2 rounded-xl shadow-lg">
-                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <div class="relative mb-10">
+                <img src="photo 2.jpg" alt="Valeria Spektor" onerror="this.src='https://ui-avatars.com/api/?name=Valeria+Spektor&background=2563eb&color=fff&size=512'" class="w-full aspect-square rounded-[2.5rem] object-cover border-4 border-slate-800 shadow-2xl">
+                <div class="absolute -bottom-3 -right-3 bg-green-500 text-white p-2.5 rounded-2xl shadow-xl shadow-green-500/20">
+                    <i data-lucide="verified" class="w-5 h-5"></i>
                 </div>
             </div>
 
             <nav>
                 <button onclick="changePage('home', this)" class="nav-btn active"><i data-lucide="home"></i> Home</button>
-                <button onclick="changePage('about', this)" class="nav-btn"><i data-lucide="user"></i> About Me</button>
+                <button onclick="changePage('about', this)" class="nav-btn"><i data-lucide="user"></i> About</button>
                 <button onclick="changePage('exp', this)" class="nav-btn"><i data-lucide="briefcase"></i> Experience</button>
                 <button onclick="changePage('ai', this)" class="nav-btn"><i data-lucide="bot"></i> AI Projects</button>
                 <button onclick="changePage('edu', this)" class="nav-btn"><i data-lucide="graduation-cap"></i> Education</button>
@@ -51,171 +49,138 @@
         </div>
 
         <div class="mt-auto flex gap-4 pt-6 border-t border-slate-800">
-            <a href="https://t.me/ValeriaSpektor" target="_blank" class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors text-white"><i data-lucide="send" class="w-5 h-5"></i></a>
-            <a href="mailto:vlapin84@gmail.com" class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors text-white"><i data-lucide="mail" class="w-5 h-5"></i></a>
+            <a href="https://t.me/ValeriaSpektor" class="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-all text-white"><i data-lucide="send"></i></a>
+            <a href="mailto:vlapin84@gmail.com" class="w-12 h-12 rounded-2xl bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-all text-white"><i data-lucide="mail"></i></a>
         </div>
     </aside>
 
-    <main class="flex-1 p-6 md:p-16 lg:p-24 relative">
+    <main class="flex-1 p-8 md:p-16 lg:p-24 relative overflow-y-auto">
         
         <section id="home" class="section-content active animate__animated animate__fadeIn">
             <div class="max-w-4xl">
-                <span class="inline-block bg-blue-600/10 text-blue-500 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">Haifa, Israel</span>
-                <h1 class="text-6xl md:text-8xl font-black mb-10 leading-[1.1]">Precision <br> Testing <br> <span class="text-blue-600 italic">habit.</span></h1>
-                <p class="text-xl md:text-2xl mb-12 max-w-2xl">QA Engineer with 2+ years of experience in manual testing for CRM systems, AI products, and high-load web platforms.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="card-pro p-8">
-                        <i data-lucide="layers" class="text-blue-500 mb-4"></i>
-                        <h4 class="font-bold mb-2">Expertise</h4>
-                        <p class="text-xs">Functional, Regression, and API testing in Agile environments.</p>
+                <span class="inline-block bg-blue-600/10 text-blue-500 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8 border border-blue-500/20">Israel | Middle QA Engineer</span>
+                <h1 class="text-7xl md:text-9xl font-black mb-10 leading-[0.9] text-white">Quality <br> without <br> <span class="gradient-text">Compromise.</span></h1>
+                <p class="text-xl md:text-2xl text-slate-400 mb-16 max-w-2xl leading-relaxed">
+                    QA Engineer with 2+ years of experience[cite: 5]. Specialized in high-load CRM systems, AI conversational assistants, and global web platforms[cite: 5, 36, 30].
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card-canva p-10 bg-gradient-to-br from-slate-900 to-black">
+                        <div class="w-14 h-14 bg-blue-600/10 text-blue-500 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="terminal"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-3">API & Data Expertise</h4>
+                        <p class="text-sm">Deep validation of REST APIs using Postman and SQL query analysis for complex defect tracking[cite: 12].</p>
                     </div>
-                    <div class="card-pro p-8">
-                        <i data-lucide="languages" class="text-blue-500 mb-4"></i>
-                        <h4 class="font-bold mb-2">Languages</h4>
-                        <p class="text-xs font-bold uppercase text-blue-400">Hebrew (C1) • English (B1) • Russian (Native)</p>
+                    <div class="card-canva p-10 bg-gradient-to-br from-slate-900 to-black">
+                        <div class="w-14 h-14 bg-blue-600/10 text-blue-500 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="languages"></i></div>
+                        <h4 class="text-xl font-bold text-white mb-3">Language Proficiency</h4>
+                        <p class="text-sm font-bold uppercase text-blue-400">Hebrew (C1) • English (B1) • Russian (Native)[cite: 20].</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="about" class="section-content animate__animated animate__fadeIn">
-            <h2 class="text-4xl font-black mb-12 uppercase tracking-tight">Professional Summary</h2>
-            <div class="card-pro p-10 mb-12 bg-slate-900/30">
-                <p class="text-lg leading-relaxed text-slate-300">
-                    I am a highly analytical QA Professional with a focus on attention to detail. I excel at validating business logic, investigating complex defects, and ensuring top-tier product quality through structured testing processes. My experience covers everything from high-traffic CRM backend logic to sophisticated conversational AI flows.
+            <h2 class="text-5xl font-black mb-12 uppercase tracking-tighter">Profile Summary</h2>
+            <div class="card-canva p-12 mb-16 bg-slate-900/40">
+                <p class="text-2xl leading-relaxed text-slate-300 italic mb-8">
+                    "I excel at validating business logic, investigating defects, and ensuring product excellence through structured testing processes in Agile environments[cite: 6, 7]."
+                </p>
+                <p class="text-lg text-slate-400">
+                    Strong analytical mindset with a focus on attention to detail. Skilled in creating comprehensive test documentation and collaborating closely with stakeholders[cite: 6, 7].
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-blue-500 font-bold mb-6 uppercase tracking-widest text-xs">Core Skills</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-slate-800 px-4 py-2 rounded-xl text-xs font-bold">Postman</span>
-                        <span class="skill-badge bg-slate-800 px-4 py-2 rounded-xl text-xs font-bold">SQL</span>
-                        <span class="skill-badge bg-slate-800 px-4 py-2 rounded-xl text-xs font-bold">Charles Proxy</span>
-                        <span class="skill-badge bg-slate-800 px-4 py-2 rounded-xl text-xs font-bold">Jira</span>
-                        <span class="skill-badge bg-slate-800 px-4 py-2 rounded-xl text-xs font-bold">JSON Validation</span>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-blue-500 font-bold mb-6 uppercase tracking-widest text-xs">Process Expert</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-slate-800 px-4 py-2 rounded-xl text-xs font-bold">Agile/Scrum</span>
-                        <span class="skill-badge bg-slate-800 px-4 py-2 rounded-xl text-xs font-bold">Risk-Based Testing</span>
-                        <span class="skill-badge bg-slate-800 px-4 py-2 rounded-xl text-xs font-bold">Root Cause Analysis</span>
-                    </div>
-                </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-slate-900 p-6 rounded-3xl text-center border border-slate-800"><p class="font-bold text-white uppercase text-[10px]">Postman</p></div>
+                <div class="bg-slate-900 p-6 rounded-3xl text-center border border-slate-800"><p class="font-bold text-white uppercase text-[10px]">SQL (DML)</p></div>
+                <div class="bg-slate-900 p-6 rounded-3xl text-center border border-slate-800"><p class="font-bold text-white uppercase text-[10px]">Jira</p></div>
+                <div class="bg-slate-900 p-6 rounded-3xl text-center border border-slate-800"><p class="font-bold text-white uppercase text-[10px]">Charles Proxy</p></div>
             </div>
         </section>
 
         <section id="exp" class="section-content animate__animated animate__fadeIn">
-            <h2 class="text-4xl font-black mb-16 uppercase tracking-tight">Experience Path</h2>
+            <h2 class="text-5xl font-black mb-16 uppercase tracking-tighter">Career Path</h2>
             
-            <div class="space-y-16">
-                <div class="card-pro flex flex-col lg:flex-row group">
-                    <div class="lg:w-1/3 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551288049-bbda4833effb?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute inset-0 img-overlay"></div>
+            <div class="space-y-20">
+                <div class="card-canva flex flex-col lg:flex-row group">
+                    <div class="lg:w-2/5 relative overflow-hidden h-72 lg:h-auto">
+                        <img src="https://images.unsplash.com/photo-1551288049-bbda4833effb?q=80&w=1200" class="w-full h-full object-cover img-premium">
                     </div>
-                    <div class="p-10 flex-1">
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="text-2xl font-bold">QA Team Lead</h3>
-                            <span class="text-blue-500 font-bold text-xs uppercase">Oct 2025 — Mar 2026</span>
+                    <div class="p-12 flex-1">
+                        <div class="flex justify-between items-start mb-8">
+                            <h3 class="text-3xl font-bold">QA Team Lead</h3>
+                            <span class="text-blue-500 font-black text-xs bg-blue-500/10 px-4 py-2 rounded-full uppercase">2025 — 2026</span>
                         </div>
-                        <p class="text-blue-400 font-bold uppercase tracking-widest text-[10px] mb-4">Imperia Leads (High-load CRM)</p>
-                        <ul class="text-sm space-y-3">
-                            <li class="flex gap-3"><i data-lucide="check" class="text-blue-500 w-4 h-4 flex-shrink-0"></i> Led QA activities for a high-load CRM system.</li>
-                            <li class="flex gap-3"><i data-lucide="check" class="text-blue-500 w-4 h-4 flex-shrink-0"></i> Tested REST APIs using Postman and validated JSON responses.</li>
-                            <li class="flex gap-3"><i data-lucide="check" class="text-blue-500 w-4 h-4 flex-shrink-0"></i> Analyzed logs, metrics, and SQL data to identify defects.</li>
+                        <p class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-6">Imperia Leads (High-load CRM) [cite: 22]</p>
+                        <ul class="text-sm space-y-4 text-slate-300">
+                            <li class="flex gap-4"><i data-lucide="check-circle" class="text-blue-500 w-5 h-5 flex-shrink-0"></i> Led QA activities for a high-load CRM system[cite: 23].</li>
+                            <li class="flex gap-4"><i data-lucide="check-circle" class="text-blue-500 w-5 h-5 flex-shrink-0"></i> Performed functional, integration, and regression testing[cite: 24].</li>
+                            <li class="flex gap-4"><i data-lucide="check-circle" class="text-blue-500 w-5 h-5 flex-shrink-0"></i> Tested REST APIs using Postman and validated JSON responses[cite: 25].</li>
+                            <li class="flex gap-4"><i data-lucide="check-circle" class="text-blue-500 w-5 h-5 flex-shrink-0"></i> Analyzed logs, metrics, and SQL data to identify defects[cite: 26].</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="card-pro flex flex-col lg:flex-row group">
-                    <div class="lg:w-1/3 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute inset-0 img-overlay"></div>
+                <div class="card-canva flex flex-col lg:flex-row group border-blue-900/30">
+                    <div class="lg:w-2/5 relative overflow-hidden h-72 lg:h-auto">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200" class="w-full h-full object-cover img-premium">
                     </div>
-                    <div class="p-10 flex-1">
-                        <div class="flex justify-between items-start mb-6">
-                            <h3 class="text-2xl font-bold">QA Engineer</h3>
-                            <span class="text-blue-500 font-bold text-xs uppercase">Jun 2025 — Sep 2025</span>
+                    <div class="p-12 flex-1">
+                        <div class="flex justify-between items-start mb-8">
+                            <h3 class="text-3xl font-bold">QA Engineer</h3>
+                            <span class="text-blue-500 font-black text-xs bg-blue-500/10 px-4 py-2 rounded-full uppercase">2025</span>
                         </div>
-                        <p class="text-blue-400 font-bold uppercase tracking-widest text-[10px] mb-4">WowPlaces (Web Platform)</p>
-                        <ul class="text-sm space-y-3">
-                            <li class="flex gap-3"><i data-lucide="check" class="text-blue-500 w-4 h-4 flex-shrink-0"></i> Validated user workflows and business logic.</li>
-                            <li class="flex gap-3"><i data-lucide="check" class="text-blue-500 w-4 h-4 flex-shrink-0"></i> Prepared regression scenarios and test documentation.</li>
+                        <p class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-6">WowPlaces (Web Platform) [cite: 30]</p>
+                        <ul class="text-sm space-y-4 text-slate-300">
+                            <li class="flex gap-4"><i data-lucide="check-circle" class="text-blue-500 w-5 h-5 flex-shrink-0"></i> Validated user workflows and business logic for the platform[cite: 32].</li>
+                            <li class="flex gap-4"><i data-lucide="check-circle" class="text-blue-500 w-5 h-5 flex-shrink-0"></i> Prepared regression scenarios and test documentation[cite: 33].</li>
+                            <li class="flex gap-4"><i data-lucide="check-circle" class="text-blue-500 w-5 h-5 flex-shrink-0"></i> Performed API checks and validated server responses[cite: 35].</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card-pro p-10 bg-slate-900/30">
-                        <h3 class="font-bold text-lg mb-2">Antara LLC (2024)</h3>
-                        <p class="text-xs">Executed 200+ manual test cases for web applications. REST API testing with Postman.</p>
+                    <div class="card-canva p-10 bg-slate-900/30">
+                        <h3 class="font-bold text-xl mb-4">Antara LLC (2024) [cite: 41]</h3>
+                        <p class="text-sm">Executed 200+ manual test cases for web applications. Collaborated closely with dev teams via Jira[cite: 42, 45].</p>
                     </div>
-                    <div class="card-pro p-10 bg-slate-900/30">
-                        <h3 class="font-bold text-lg mb-2">Tehnosoft LLC (2023)</h3>
-                        <p class="text-xs">Tested 'Adventure and Life' mobile app. Charles Proxy traffic analysis.</p>
+                    <div class="card-canva p-10 bg-slate-900/30">
+                        <h3 class="font-bold text-xl mb-4">Tehnosoft LLC (2023) [cite: 46]</h3>
+                        <p class="text-sm">Mobile testing for 'Adventure and Life'. Used Charles Proxy for traffic data validation[cite: 47, 49].</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="ai" class="section-content animate__animated animate__fadeIn">
-            <h2 class="text-4xl font-black mb-12 uppercase tracking-tight">AI Assistants Portfolio</h2>
-            <p class="text-xl text-slate-400 mb-12">I have managed QA processes for a wide range of specialized AI agents, ensuring logic branching and speech recognition accuracy.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="card-pro p-8 border-purple-500/20">
-                    <i data-lucide="dumbbell" class="text-purple-500 mb-4"></i>
-                    <h4 class="font-bold mb-2">Strength Training Asst</h4>
-                    <p class="text-xs leading-relaxed">Verification of workout programs and technique guidance logic.</p>
+            <h2 class="text-5xl font-black mb-12 uppercase tracking-tighter">AI Assistants</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="card-canva p-12 flex items-center gap-10">
+                    <div class="w-24 h-24 bg-blue-600/20 rounded-full flex items-center justify-center text-blue-500"><i data-lucide="bot" class="w-12 h-12"></i></div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2 uppercase">Chatbot Studio AI [cite: 36]</h3>
+                        <p class="text-sm">QA Lead for specialized AI agents. Verified speech recognition and personalization logic[cite: 37].</p>
+                    </div>
                 </div>
-                <div class="card-pro p-8 border-purple-500/20">
-                    <i data-lucide="bike" class="text-purple-500 mb-4"></i>
-                    <h4 class="font-bold mb-2">Cycling Coach Asst</h4>
-                    <p class="text-xs leading-relaxed">Ensuring training plan accuracy and progressive load logic.</p>
-                </div>
-                <div class="card-pro p-8 border-purple-500/20">
-                    <i data-lucide="heart-pulse" class="text-purple-500 mb-4"></i>
-                    <h4 class="font-bold mb-2">Wellness Assistant</h4>
-                    <p class="text-xs leading-relaxed">Testing corporate fitness solutions and health metric tracking.</p>
-                </div>
-                <div class="card-pro p-8 border-purple-500/20">
-                    <i data-lucide="user-check" class="text-purple-500 mb-4"></i>
-                    <h4 class="font-bold mb-2">QA Mentor Asst</h4>
-                    <p class="text-xs leading-relaxed">Educational logic testing and resource guidance accuracy.</p>
-                </div>
-                <div class="card-pro p-8 border-purple-500/20">
-                    <i data-lucide="home" class="text-purple-500 mb-4"></i>
-                    <h4 class="font-bold mb-2">Home Fitness Asst</h4>
-                    <p class="text-xs leading-relaxed">Validating indoor workout variations and speech interaction.</p>
-                </div>
-                <div class="card-pro p-8 border-purple-500/20">
-                    <i data-lucide="run" class="text-purple-500 mb-4"></i>
-                    <h4 class="font-bold mb-2">Running Coach Asst</h4>
-                    <p class="text-xs leading-relaxed">Testing training plan optimization and performance metrics.</p>
-                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 p-8 rounded-3xl text-center hover:border-blue-500 transition-all border border-slate-800"><h4 class="text-xs font-bold text-white uppercase">Strength Training Asst</h4></div>
+                <div class="bg-slate-900 p-8 rounded-3xl text-center hover:border-blue-500 transition-all border border-slate-800"><h4 class="text-xs font-bold text-white uppercase">Cycling Coach Asst</h4></div>
+                <div class="bg-slate-900 p-8 rounded-3xl text-center hover:border-blue-500 transition-all border border-slate-800"><h4 class="text-xs font-bold text-white uppercase">QA Mentor Asst</h4></div>
+                <div class="bg-slate-900 p-8 rounded-3xl text-center hover:border-blue-500 transition-all border border-slate-800"><h4 class="text-xs font-bold text-white uppercase">Wellness Assistant</h4></div>
+                <div class="bg-slate-900 p-8 rounded-3xl text-center hover:border-blue-500 transition-all border border-slate-800"><h4 class="text-xs font-bold text-white uppercase">Home Fitness Asst</h4></div>
+                <div class="bg-slate-900 p-8 rounded-3xl text-center hover:border-blue-500 transition-all border border-slate-800"><h4 class="text-xs font-bold text-white uppercase">Running Coach Asst</h4></div>
             </div>
         </section>
 
         <section id="edu" class="section-content animate__animated animate__fadeIn">
-            <h2 class="text-4xl font-black mb-16 uppercase tracking-tight">Education</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="card-pro p-10 flex flex-col justify-center">
-                    <h3 class="text-3xl font-bold mb-2">Haifa University</h3>
-                    <p class="text-blue-500 font-bold uppercase tracking-widest text-xs">Master's Degree</p>
+            <h2 class="text-5xl font-black mb-16 uppercase tracking-tighter">Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="card-canva p-12 flex flex-col justify-between">
+                    <h3 class="text-3xl font-extrabold mb-4 uppercase leading-tight">University <br> of Haifa [cite: 55]</h3>
+                    <p class="text-blue-500 font-black uppercase text-xs tracking-widest italic">Master's Degree</p>
                 </div>
-                <div class="card-pro p-10 flex flex-col justify-center">
-                    <h3 class="text-3xl font-bold mb-2">QA.GURU</h3>
-                    <p class="text-blue-400 font-bold uppercase tracking-widest text-xs">Automation: JS & Playwright (2024)</p>
-                </div>
-                <div class="card-pro p-10 flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold mb-2">Kostroma State Univ.</h3>
-                    <p class="text-slate-500 font-bold uppercase tracking-widest text-xs">Bachelor's Degree</p>
-                </div>
-                <div class="card-pro p-10 flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold mb-2">IT Switcher</h3>
-                    <p class="text-slate-500 font-bold uppercase tracking-widest text-xs">Manual & Cypress (2023)</p>
+                <div class="card-canva p-12 flex flex-col justify-between border-blue-600/40">
+                    <h3 class="text-3xl font-extrabold mb-4 uppercase leading-tight">QA.GURU <br> (2024) [cite: 52]</h3>
+                    <p class="text-blue-500 font-black uppercase text-xs tracking-widest italic">Automation (JS & Playwright) [cite: 53]</p>
                 </div>
             </div>
         </section>
@@ -226,7 +191,6 @@
         function changePage(id, btn) {
             document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            
             document.getElementById(id).classList.add('active');
             btn.classList.add('active');
             window.scrollTo(0, 0);
